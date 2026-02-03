@@ -1,4 +1,5 @@
 import { Phone, Calendar, FileText, PenTool, Users, Presentation } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const steps = [
   {
@@ -43,16 +44,21 @@ const Process = () => {
   return (
     <section id="processo" className="py-20 md:py-28 bg-charcoal">
       <div className="container">
-        <div className="text-center mb-12 md:mb-16">
+        <AnimatedSection className="text-center mb-12 md:mb-16">
           <p className="section-title text-gold">Metodologia</p>
           <h2 className="heading-section text-cream-light">Conheça o Processo</h2>
-        </div>
+        </AnimatedSection>
 
         {/* Desktop: Horizontal flow */}
         <div className="hidden lg:block">
           <div className="grid grid-cols-6 gap-4">
             {steps.map((step, index) => (
-              <div key={index} className="relative group">
+              <AnimatedSection 
+                key={index} 
+                animation="fade-up" 
+                delay={index * 100}
+                className="relative group"
+              >
                 {/* Connector line */}
                 {index < steps.length - 1 && (
                   <div className="absolute top-8 left-1/2 w-full h-px bg-gradient-to-r from-gold/50 to-gold/20" />
@@ -69,7 +75,7 @@ const Process = () => {
                   </h4>
                   <p className="text-xs text-cream-light/60">{step.description}</p>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -78,8 +84,10 @@ const Process = () => {
         <div className="lg:hidden">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {steps.map((step, index) => (
-              <div
+              <AnimatedSection
                 key={index}
+                animation="scale"
+                delay={index * 80}
                 className={`flex flex-col items-center text-center p-4 ${
                   index % 2 === 1 ? "mt-8" : ""
                 }`}
@@ -92,7 +100,7 @@ const Process = () => {
                   {step.title}
                 </h4>
                 <p className="text-xs text-cream-light/60">{step.description}</p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
