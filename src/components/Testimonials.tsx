@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const testimonials = [
   {
@@ -25,15 +26,17 @@ const Testimonials = () => {
   return (
     <section id="depoimentos" className="py-20 md:py-28 bg-cream-light">
       <div className="container">
-        <div className="text-center mb-12 md:mb-16">
+        <AnimatedSection className="text-center mb-12 md:mb-16">
           <p className="section-title">Depoimentos</p>
           <h2 className="heading-section">O Que Dizem Nossos Clientes</h2>
-        </div>
+        </AnimatedSection>
 
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <AnimatedSection
               key={index}
+              animation="fade-up"
+              delay={index * 150}
               className="bg-background p-6 md:p-8 border border-border"
             >
               <Quote className="w-8 h-8 text-gold/40 mb-4" />
@@ -44,7 +47,7 @@ const Testimonials = () => {
                 <p className="font-serif text-foreground">{testimonial.name}</p>
                 <p className="text-sm text-gold">{testimonial.area}</p>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { MessageCircle, Phone } from "lucide-react";
 import lawyerWorking from "@/assets/lawyer-working.jpg";
+import AnimatedSection from "./AnimatedSection";
 
 const About = () => {
   return (
@@ -7,20 +8,22 @@ const About = () => {
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <div className="relative">
-            <div className="aspect-[4/3] overflow-hidden">
-              <img
-                src={lawyerWorking}
-                alt="Dra. Yasmim de Paula trabalhando"
-                className="w-full h-full object-cover grayscale-img"
-              />
+          <AnimatedSection animation="fade-right">
+            <div className="relative">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={lawyerWorking}
+                  alt="Dra. Yasmim de Paula trabalhando"
+                  className="w-full h-full object-cover grayscale-img"
+                />
+              </div>
+              {/* Gold accent line */}
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-gold" />
             </div>
-            {/* Gold accent line */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-gold" />
-          </div>
+          </AnimatedSection>
 
           {/* Content */}
-          <div>
+          <AnimatedSection animation="fade-left" delay={150}>
             <p className="section-title">Sobre o Escritório</p>
             <h2 className="heading-section mb-6">Dra. Yasmim de Paula</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -57,7 +60,7 @@ const About = () => {
                 Ligar Agora
               </a>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
